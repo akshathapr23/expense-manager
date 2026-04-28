@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expense Manager</title>
+
+    <!-- 📱 Mobile responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 🎨 CSS -->
+    <link rel="stylesheet" href="/static/style.css">
+
+    <!-- 📊 Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>💰 Expense Manager</h1>
+
+    <!-- 🔐 LOGIN / REGISTER -->
+    <h3>Login / Register</h3>
+
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+
+    <button onclick="login()">Login</button>
+    <button onclick="register()">Register</button>
+
+    <hr>
+
+    <!-- 💰 EXPENSE INPUT -->
+    <h3>Add Expense</h3>
+
+    <input type="number" id="amount" placeholder="Amount">
+    <input type="text" id="category" placeholder="Category">
+    <input type="date" id="date">
+    <input type="text" id="note" placeholder="Note">
+
+    <!-- 💸 Budget -->
+    <input type="number" id="budget" placeholder="Set Budget">
+
+    <button onclick="addExpense()">Add Expense</button>
+
+    <!-- 💰 TOTAL -->
+    <h2 id="total">Total: ₹ 0</h2>
+
+    <!-- 📋 LIST -->
+    <h3>Expenses</h3>
+    <ul id="list"></ul>
+
+    <!-- 📊 CHART -->
+    <h3>Spending Chart 📊</h3>
+    <div style="height:300px;">
+        <canvas id="myChart"></canvas>
+    </div>
+
+</div>
+
+<!-- ⚙️ JS -->
+<script src="/static/script.js"></script>
+
+</body>
+</html>
