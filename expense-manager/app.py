@@ -1,14 +1,17 @@
 from flask import Flask, render_template, request, jsonify, session
 import sqlite3
+import os
 
 app = Flask(__name__)
 app.secret_key = "secret123"
 
 
+# 📌 DATABASE CONNECTION
 def get_db():
-    return sqlite3.connect("database.db")
+    return sqlite3.connect("database.db", check_same_thread=False)
 
 
+# 📌 INIT DATABASE
 def init_db():
     conn = get_db()
 
@@ -34,6 +37,7 @@ def init_db():
     conn.close()
 
 
+# 📌 HOME
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -127,6 +131,7 @@ def delete_expense(id):
     return jsonify({"message": "deleted"})
 
 
+# 🚀 START APP (RENDER READY)
 if __name__ == "__main__":
     init_db()
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run()
